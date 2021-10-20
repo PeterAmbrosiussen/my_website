@@ -95,7 +95,7 @@ params:
         title: Yield curve
         url: blogs/ipsum
       - image: Bike.jpg
-        subtitle: Project
+        subtitle: Have weekly bike rentals increased over the last few years?
         title: Bike rentals
         url: blogs/ipsum
   two:
