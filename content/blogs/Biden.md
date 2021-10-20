@@ -1,0 +1,264 @@
+---
+categories:
+- ""
+- ""
+date: "2017-10-31T22:26:09-05:00"
+description: Lorem Etiam Nullam
+draft: false
+image: pic09.jpg
+keywords: ""
+slug: magna
+title: Magna
+---
+
+
+```{r load-libraries, include=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(here)
+library(skimr)
+library(janitor)
+library(httr)
+library(readxl)
+library(vroom)
+library(infer)
+library(kableExtra)
+library(lubridate)
+library(patchwork)
+library(rvest)
+library(scales)
+```
+
+# Climate change and temperature anomalies 
+
+
+If we wanted to study climate change, we can find data on the *Combined Land-Surface Air and Sea-Surface Water Temperature Anomalies* in the Northern Hemisphere at [NASA's Goddard Institute for Space Studies](https://data.giss.nasa.gov/gistemp). The [tabular data of temperature anomalies can be found here](https://data.giss.nasa.gov/gistemp/tabledata_v4/NH.Ts+dSST.txt)
+
+To define temperature anomalies you need to have a reference, or base, period which NASA clearly states that it is the period between 1951-1980.
+
+
+```{r weather_data, cache=TRUE}
+
+weather <- 
+  read_csv("https://data.giss.nasa.gov/gistemp/tabledata_v4/NH.Ts+dSST.csv", 
+           skip = 1, 
+           na = "***")
+
+```
+
+
+You have two objectives in this section:
+
+1. Select the year and the twelve month variables from the `weather` dataset. We do not need the others (J-D, D-N, DJF, etc.) for this assignment. Hint: use `select()` function.
+
+1. Convert the dataframe from wide to 'long' format. Hint: use `gather()` or `pivot_longer()` function. Name the new dataframe as `tidyweather`, name the variable containing the name of the month as `month`, and the temperature deviation values as `delta`.
+
+
+```{r tidyweather}
+tidyweather <- weather %>%
+  select(Year:Dec)%>% # selecting year and 12 month variables
+  pivot_longer(cols=2:13, # converting dataframe to long format
+               names_to ="Month",
+               values_to = "delta")
+
+glimpse(tidyweather)
+
+```
+
+## Plotting Information
+
+Let us plot the data using a time-series scatter plot, and add a trendline. To do that, we first need to create a new variable called `date` in order to ensure that the `delta` values are plot chronologically. 
+
+
+
+```{r scatter_plot, fig.width = 12}
+
+tidyweather <- tidyweather %>%
+  mutate(date = ymd(paste(as.character(Year), Month, "1")), # add columns date, month and year
+         month = month(date, label=TRUE),
+         year = year(date))
+
+ggplot(tidyweather, aes(x=date, y = delta))+
+  geom_point(size = 0.8)+ # add points
+  geom_smooth(color="red") + # add trendline
+  theme_bw() +
+  theme(panel.border = element_blank()) +
+  labs ( # change titles and axis names
+    title = "Weather Anomalies",
+    subtitle = "Temperature deviations have increased since 1880",
+    x = "Year",
+    y = "Temperature deviation in degrees Celsius"
+  )
+
+```
+
+## Is the effect of increasing temperature more pronounced in some months? 
+
+Overall, it appears that the effect of increasing temperature is more pronounced in February, March, April and October. Potential explanations for the increase in February, March and April may include the significant drop in Northern Hemisphere snow cover and Arctic sea ice during these months.
+
+
+```{r facet_wrap, fig.width = 12}
+ggplot(tidyweather, aes(x=date, y = delta))+
+  geom_point(size = 0.8)+
+  geom_smooth(color="red") +
+  facet_wrap(vars(month)) + # show each month individually
+  theme_bw() +
+  theme(panel.border = element_blank(), # remove background
+        strip.background = element_blank() # remove chart title formatting for better readability
+        ) +
+  labs (
+    title = "Weather Anomalies",
+    subtitle = "More pronounced increases in fall and spring",
+    x = "Year",
+    y = "Temperature deviation in degrees Celsius"
+  )
+
+
+```
+
+
+It is sometimes useful to group data into different time periods to study historical data. For example, we often refer to decades such as 1970s, 1980s, 1990s etc. to refer to a period of time. NASA calculates a temperature anomaly, as difference from the base period of 1951-1980. The code below creates a new data frame called `comparison` that groups data in five time periods: 1881-1920, 1921-1950, 1951-1980, 1981-2010 and 2011-present. 
+
+
+```{r intervals}
+
+comparison <- tidyweather %>% 
+  filter(Year>= 1881) %>%     #remove years prior to 1881
+  #create new variable 'interval', and assign values based on criteria below:
+  mutate(interval = case_when(
+    Year %in% c(1881:1920) ~ "1881-1920",
+    Year %in% c(1921:1950) ~ "1921-1950",
+    Year %in% c(1951:1980) ~ "1951-1980",
+    Year %in% c(1981:2010) ~ "1981-2010",
+    TRUE ~ "2011-present"
+  ))
+
+```
+
+Now that we have the `interval` variable, we can create a density plot to study the distribution of monthly deviations (`delta`), grouped by the different time periods we are interested in. Set `fill` to `interval` to group and colour the data by different time periods.
+
+```{r density_plot, fig.width = 12}
+
+ggplot(comparison, aes(x=delta, fill=interval, color = interval), legend.position = "none")+
+  geom_density(alpha=0.2) +   #density plot with tranparency set to 20%
+  theme_bw() +
+  theme(legend.title = element_blank(), panel.border = element_blank()) + # remove legend title
+  labs (
+    title = "Density Plot for Monthly Temperature Anomalies",
+    x = "Temperature deviation in degrees Celsius", 
+    y     = "Density"         #changing y-axis label to sentence case
+  )
+
+```
+
+So far, we have been working with monthly anomalies. However, we might be interested in average annual anomalies. We can do this by using `group_by()` and `summarise()`, followed by a scatter plot to display the result. 
+
+```{r averaging, fig.width = 12}
+
+#creating yearly averages
+average_annual_anomaly <- tidyweather %>% 
+  group_by(year) %>%   #grouping data by Year
+  
+  # creating summaries for mean delta 
+  # use `na.rm=TRUE` to eliminate NA (not available) values 
+  summarise(
+    annual_average_delta = mean(delta, na.rm = TRUE)
+  )
+
+#plotting the data:
+ggplot(average_annual_anomaly, aes(x = year, y = annual_average_delta))+
+  geom_point(size = 1.1)+
+  
+  #Fit the best fit line, using LOESS method
+  geom_smooth(color = "red")+
+  
+  #change to theme_bw() to have white background + black frame around plot
+  theme_bw() +
+  theme(panel.border = element_blank()) +
+  labs (
+    title = "Average Yearly Temperature Anomaly",
+    x = "Year",
+    y = "Average annual temperature deviation in degrees Celsius"
+  )                         
+
+
+```
+
+
+## Confidence Interval for `delta`
+
+[NASA points out on their website](https://earthobservatory.nasa.gov/world-of-change/decadaltemp.php) that 
+
+> A one-degree global change is significant because it takes a vast amount of heat to warm all the oceans, atmosphere, and land by that much. In the past, a one- to two-degree drop was all it took to plunge the Earth into the Little Ice Age.
+
+Your task is to construct a confidence interval for the average annual delta since 2011, both using a formula and using a bootstrap simulation with the `infer` package. Recall that the dataframe `comparison` has already grouped temperature anomalies according to time intervals; we are only interested in what is happening  between 2011-present.
+
+```{r, calculate_CI_using_formula}
+
+formula_ci <- comparison %>% 
+ filter(date >= ymd("2011-01-01"), date < ymd("2021-09-01")) %>%
+  group_by(interval) %>% # group by interval to calculate statistics for entire period 2011-present
+  summarise(  # calculate summary statistics for temperature deviation (delta) using summarise and stat functions
+    mean_annual_delta = mean(delta), # calculate mean, SD, count, SE, lower/upper 95% CI (see this line and below)
+    sd_annual_delta = sd(delta),
+    count = n(),
+    se_annual_delta = sd_annual_delta / sqrt(count),
+    t_critical = qt(0.975, count -1),
+    lower = mean_annual_delta - t_critical * se_annual_delta,
+    upper = mean_annual_delta + t_critical * se_annual_delta,
+  ) %>% 
+  select(interval, mean_annual_delta, sd_annual_delta, se_annual_delta, lower, upper) %>% # select columns for table
+  rename(c("Period"="interval", "Mean"="mean_annual_delta", "Standard Deviation"="sd_annual_delta", "Standard Error"="se_annual_delta", "Lower CI Border"="lower", "Upper CI Border"="upper")) %>% # rename columns
+  kable(digits = 2) %>% # choose two digits after comma
+  kable_styling()
+ 
+formula_ci # print
+```
+
+
+```{r, calculate_CI_using_bootstrap, fig.width = 12}
+# use the infer package to construct a 95% CI for delta
+formula_ci <- comparison %>% 
+ filter(year >= "2011", year < "2021") %>% # choose the interval 2011 to 2020, as 2021 has incomplete data
+  group_by(interval) %>% # group by interval to calculate statistics for entire period 2011-present
+  summarise(  # calculate summary statistics for temperature deviation (delta) using summarise and stat functions
+    mean_annual_delta = mean(delta), # calculate mean, SD, count, SE, lower/upper 95% CI (see this line and below)
+    sd_annual_delta = sd(delta),
+    count = n(),
+    se_annual_delta = sd_annual_delta / sqrt(count),
+    t_critical = qt(0.975, count -1),
+    lower = mean_annual_delta - t_critical * se_annual_delta,
+    upper = mean_annual_delta + t_critical * se_annual_delta,
+  ) %>% 
+  select(lower, upper) 
+  
+boot_delta <- comparison %>% 
+  filter(year >= "2011", year < "2021") %>% # filter for years 2011-present
+  group_by(interval) %>% 
+  specify(response = delta) %>% # bootstrap step 1: specify variable
+  generate(reps = 1000, type = "bootstrap") %>% # bootstrap step 2: specify number of reps to generate
+  calculate(stat = "mean") # bootstrap step 3: choose statistic to calculate
+
+
+percentile_ci <- boot_delta %>% 
+  get_confidence_interval(level = 0.95, type = "percentile") # use get_ci to get the 95% confidence interval
+
+
+visualize(boot_delta) + # visualize 
+  shade_confidence_interval(endpoints = percentile_ci, color = "red") +
+  labs(
+      title = "Simulation-Based Bootstrap Distribution and Confidence Interval of Delta",
+      x = "Delta",
+      y = "Frequency"
+  ) +
+  theme_bw() +
+  theme(panel.border = element_blank())
+
+
+```
+
+> What is the data showing us? Please type your answer after (and outside!) this blockquote. You have to explain what you have done, and the interpretation of the result. One paragraph max, please!
+
+Overall, it appears that the confidence interval for the average annual delta is between 1.01 and 1.11 degrees for 2011-present using the formula and between 1.02 and 1.11 degrees using bootstrapping. This means that if we were to take 100 random samples from the population, we are 95% certain that the mean of these samples falls between 1.01/1.02 and 1.11 degrees.The formula for computing the confidence interval is the mean delta - / + critical t-value for n-1 * standard error of delta. The bootstrapping consists of generating a bunch of bootstrap samples, finding the mean of each sample, and creating a distribution of the sample statistics of which the 95% confidence interval is the middle 95% of the bootstrap distribution. The sampling within the bootstrap samples is done with replacement.

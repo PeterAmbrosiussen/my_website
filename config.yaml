@@ -85,7 +85,7 @@ params:
       - image: climate.jpg
         subtitle: Have weather anomalies increased over time?
         title: Climate change
-        url: blogs/risk_return
+        url: blogs/climate_change
       - image: Biden.jpg
         subtitle: How have Biden's approval rates developed?
         title: Joe Biden
