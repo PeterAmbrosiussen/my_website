@@ -7,10 +7,10 @@ disqusShortname: ''
 params:
   banner:
     buttonText: Get Started
-    subtitle: |-
+    subtitle: |- I would love to tell you more about myself and what I have learned during the Data Analytics course
       A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
       AND RELEASED UNDER THE CREATIVE COMMONS.
-    title: Hi, my name is Peter Ambrosiussen
+    title: Hi, my name is Peter Ambrosiussen. I am currently a Masters in Financial Analysis student at London Business School
   blog: {}
   contact:
     address:
@@ -50,7 +50,7 @@ params:
         url: https://www.instagram.com/peter.ambrosiussen/
       - icon: fa-github
         label: GitHub
-        url: https://www.github.com
+        url: https://github.com/PeterAmbrosiussen/my_website
       - icon: fa-linkedin
         label: LinkedIn
         url: https://www.linkedin.com/in/peter-ambrosiussen/
@@ -80,7 +80,7 @@ params:
     showcase:
       - image: pic01.jpg
         subtitle: Ipsum Dolor Sit Amet
-        title: Aliquam
+        title: About me
         url: blogs/aliquam
       - image: lbs.jpg
         subtitle: I love PSV Eindhoven
