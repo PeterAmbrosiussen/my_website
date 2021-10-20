@@ -8,8 +8,8 @@ params:
   banner:
     buttonText: Get Started
     subtitle: |-
-      A PERSONALISED WEBSITE TO TELL YOU MORE ABOUT MYSELF AND WHAT I HAVE LEARNED DURING THE DATA ANALYTICS FOR FINANCE COURSE
-    title: Hi world, my name is Peter Ambrosiussen
+      WELCOME TO MY PERSONALISED WEBSITE WHICH TELLS YOU MORE ABOUT MYSELF AND WHAT I HAVE LEARNED DURING THE DATA ANALYTICS FOR FINANCE COURSE
+    title: Hello world, my name is Peter Ambrosiussen
   blog: {}
   contact:
     address:
@@ -24,7 +24,7 @@ params:
         title: Email
     enable: yes
     phone:
-      - phone: +31 648547140
+      - phone: +31 6 48 54 71 40
         title: Phone
   custom_css: []
   custom_js: []
@@ -59,9 +59,6 @@ params:
     button1:
       - name: Get Started
         url: blogs
-    button2:
-      - name: Log In
-        url: '#'
     links:
       - name: Home
         url: '#'
@@ -70,28 +67,28 @@ params:
       - name: CV
         url: blogs/ipsum
       - name: Projects
-        url: elements.html
+        url: blogs
     menu: Menu
     subtitle: By HTML5 Up
     title: Forty
   tiles:
     enable: yes
     showcase:
-      - image: pic01.jpg
-        subtitle: A short biography
-        title: About me
+      - image: profile_picture.png
+        subtitle: A short introduction to my life
+        title: Biography
         url: blogs/aliquam
       - image: lbs.jpg
-        subtitle: Professional and academic achievements
+        subtitle: My professional and academic achievements
         title: Curriculum Vitae
-        url: blogs/tempus
+        url: blogs/cv
       - image: pic03.jpg
         subtitle: Lorem Etiam Nullam
-        title: Risk- Return of DJIA
+        title: Project 1
         url: blogs/risk_return
       - image: pic04.jpg
         subtitle: Nisl Sed Aliquam
-        title: Ipsum
+        title: Project 2
         url: blogs/ipsum
       - image: pic05.jpg
         subtitle: Ipsum Dolor Sit Amet
