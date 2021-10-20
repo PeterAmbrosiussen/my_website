@@ -8,7 +8,7 @@ params:
   banner:
     buttonText: Get Started
     subtitle: |-
-    A PERSONALISED WEBSITE TO TELL YOU MORE ABOUT MYSELF AND WHAT I HAVE LEARNED DURING THE DATA ANALYTICS FOR FINANCE COURSE
+      A PERSONALISED WEBSITE TO TELL YOU MORE ABOUT MYSELF AND WHAT I HAVE LEARNED DURING THE DATA ANALYTICS FOR FINANCE COURSE
     title: Hi, my name is Peter Ambrosiussen. I am currently a Masters in Financial Analysis student at London Business School
   blog: {}
   contact:
