@@ -6,7 +6,7 @@ googleAnalytics: ''
 disqusShortname: ''
 params:
   banner: 
-    buttonText: Get Started
+    buttonText: View website
     subtitle: |-  
       WELCOME TO MY PERSONALISED WEBSITE WHICH TELLS YOU MORE ABOUT MYSELF AND WHAT I HAVE LEARNED DURING THE DATA ANALYTICS FOR FINANCE COURSE
     title: Hello world, my name is Peter Ambrosiussen
@@ -63,7 +63,7 @@ params:
       - name: Home
         url: '#'
       - name: About me
-        url: posts/Projects
+        url: blogs/Biography
       - name: CV
         url: blogs/project
       - name: Projects
@@ -98,7 +98,7 @@ params:
         subtitle: Have weekly bike rentals increased over the last few years?
         title: Bike rentals
         url: blogs/ipsum
-  two:
+ # two:
     buttonText: Get Started
     enable: yes
     subtitle: "Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero.
