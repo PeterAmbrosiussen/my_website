@@ -104,12 +104,6 @@ newap_list <- approval_polllist %>%
     theme(panel.border = element_blank())
 ```
 
-Also, please add an orange line at zero. Your plot should look like this:
-
-```{r trump_margins, echo=FALSE, out.width="100%"}
-knitr::include_graphics(here::here("images", "biden_approval_margin.png"), error = FALSE)
-```
-
 ## Compare Confidence Intervals
 
 Compare the confidence intervals for `week 3` and `week 25`. Can you explain what's going on? One paragraph would be enough.

@@ -89,11 +89,11 @@ params:
       - image: Biden.jpg
         subtitle: How have Biden's approval rates developed?
         title: Joe Biden
-        url: blogs/ipsum
+        url: blogs/biden
       - image: Money.jpg
         subtitle: Can yield curves help predict recessions?
         title: Yield curve
-        url: blogs/ipsum
+        url: blogs/yield
       - image: Bike.jpg
         subtitle: Have weekly bike rentals increased over the last few years?
         title: Bike rentals

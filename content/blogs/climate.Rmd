@@ -1,7 +1,7 @@
 ---
 title: "Climate change and temperature anomalies"
 date: '2021-09-30'
-description: Risk-Return of DJIA stocks
+description: Climate change
 draft: no
 image: fire.jpg
 keywords: ''
