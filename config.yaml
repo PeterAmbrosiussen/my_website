@@ -5,9 +5,9 @@ theme: forty
 googleAnalytics: ''
 disqusShortname: ''
 params:
-  banner:
+  banner: 
     buttonText: Get Started
-    subtitle: |-
+    subtitle: |-  
       WELCOME TO MY PERSONALISED WEBSITE WHICH TELLS YOU MORE ABOUT MYSELF AND WHAT I HAVE LEARNED DURING THE DATA ANALYTICS FOR FINANCE COURSE
     title: Hello world, my name is Peter Ambrosiussen
   blog: {}
@@ -77,7 +77,7 @@ params:
       - image: profile_picture.png
         subtitle: A short introduction to my life
         title: Biography
-        url: blogs/aliquam
+        url: blogs/biography
       - image: lbs.jpg
         subtitle: My professional and academic achievements
         title: Curriculum Vitae
@@ -92,11 +92,11 @@ params:
         url: blogs/ipsum
       - image: pic05.jpg
         subtitle: Ipsum Dolor Sit Amet
-        title: Consequat
+        title: Project 3
         url: blogs/ipsum
       - image: pic06.jpg
-        subtitle: Feugiat Amet Tempus
-        title: Etiam
+        subtitle: Project
+        title: Project 4
         url: blogs/ipsum
   two:
     buttonText: Get Started
