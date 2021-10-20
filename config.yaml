@@ -7,9 +7,7 @@ disqusShortname: ''
 params:
   banner:
     buttonText: Get Started
-    subtitle: |- I would love to tell you more about myself and what I have learned during the Data Analytics course
-      A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
-      AND RELEASED UNDER THE CREATIVE COMMONS.
+    subtitle: |- A PERSONALISED WEBSITE TO TELL YOU MORE ABOUT MYSELF AND WHAT I HAVE LEARNED DURING THE DATA ANALYTICS FOR FINANCE COURSE
     title: Hi, my name is Peter Ambrosiussen. I am currently a Masters in Financial Analysis student at London Business School
   blog: {}
   contact:
@@ -25,7 +23,7 @@ params:
         title: Email
     enable: yes
     phone:
-      - phone: +31 648547140 x1234
+      - phone: +31 648547140
         title: Phone
   custom_css: []
   custom_js: []
@@ -35,12 +33,12 @@ params:
     text: Please visit [this page](/)
   favicon: favicon.ico
   footer:
-    copyright: Company Name
+    copyright: Peter Ambrosiussen
     enable: yes
     quicklinks:
-      - alt: HTML5 UP
-        text: 'Design: '
-        url: https://www.html5up.net
+      #- alt: HTML5 UP
+      #  text: 'Design: '
+      #  url: https://www.html5up.net
     social:
       - icon: fa-facebook
         label: Facebook
@@ -50,7 +48,7 @@ params:
         url: https://www.instagram.com/peter.ambrosiussen/
       - icon: fa-github
         label: GitHub
-        url: https://github.com/PeterAmbrosiussen/my_website
+        url: https://github.com/PeterAmbrosiussen
       - icon: fa-linkedin
         label: LinkedIn
         url: https://www.linkedin.com/in/peter-ambrosiussen/
@@ -66,11 +64,11 @@ params:
     links:
       - name: Home
         url: '#'
-      - name: Blogs
-        url: blogs
-      - name: Generic Blog
+      - name: About me
+        url: about/biography
+      - name: CV
         url: blogs/ipsum
-      - name: Elements
+      - name: Projects
         url: elements.html
     menu: Menu
     subtitle: By HTML5 Up
@@ -79,12 +77,12 @@ params:
     enable: yes
     showcase:
       - image: pic01.jpg
-        subtitle: Ipsum Dolor Sit Amet
+        subtitle: A short biography
         title: About me
         url: blogs/aliquam
       - image: lbs.jpg
-        subtitle: I love PSV Eindhoven
-        title: About me
+        subtitle: Professional and academic achievements
+        title: Curriculum Vitae
         url: blogs/tempus
       - image: pic03.jpg
         subtitle: Lorem Etiam Nullam
