@@ -63,9 +63,9 @@ params:
       - name: Home
         url: '#'
       - name: About me
-        url: about/biography
+        url: posts/Projects
       - name: CV
-        url: blogs/ipsum
+        url: blogs/project
       - name: Projects
         url: blogs
     menu: Menu
@@ -82,21 +82,21 @@ params:
         subtitle: My professional and academic achievements
         title: Curriculum Vitae
         url: blogs/cv
-      - image: pic03.jpg
-        subtitle: Lorem Etiam Nullam
-        title: Project 1
+      - image: climate.jpg
+        subtitle: Have weather anomalies increased over time?
+        title: Climate change
         url: blogs/risk_return
-      - image: pic04.jpg
-        subtitle: Nisl Sed Aliquam
-        title: Project 2
+      - image: Biden.jpg
+        subtitle: How have Biden's approval rates developed?
+        title: Joe Biden
         url: blogs/ipsum
-      - image: pic05.jpg
-        subtitle: Ipsum Dolor Sit Amet
-        title: Project 3
+      - image: Money.jpg
+        subtitle: Can yield curves help predict recessions?
+        title: Yield curve
         url: blogs/ipsum
-      - image: pic06.jpg
+      - image: Bike.jpg
         subtitle: Project
-        title: Project 4
+        title: Bike rentals
         url: blogs/ipsum
   two:
     buttonText: Get Started
