@@ -3,7 +3,7 @@ categories:
 - ""
 - ""
 date: "2017-10-31T22:42:51-05:00"
-description: xxxx
+description: A brief description of my personal and professional background
 draft: false
 image: singapore.jpg
 keywords: ""

@@ -60,8 +60,6 @@ params:
       - name: Home page
         url: '#'
     links:
-      - name: Home
-        url: '#'
       - name: About me
         url: blogs/biography
       - name: CV
