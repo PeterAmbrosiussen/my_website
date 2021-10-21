@@ -75,11 +75,11 @@ params:
       - image: profile_picture.png
         subtitle: A short introduction to my life
         title: Biography
-        url: post/biography
+        url: posts/biography
       - image: lbs.jpg
         subtitle: My professional and academic achievements
         title: Curriculum Vitae
-        url: post/cv
+        url: posts/cv
       - image: climate.jpg
         subtitle: Have weather anomalies increased over time?
         title: Climate change
