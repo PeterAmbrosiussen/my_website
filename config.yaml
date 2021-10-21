@@ -69,8 +69,8 @@ params:
       - name: Blogs
         url: blogs
     menu: Menu
-    #subtitle: By HTML5 Up
-    #title: Forty
+    subtitle: 
+    title: Peter world
   tiles:
     enable: yes
     showcase:
