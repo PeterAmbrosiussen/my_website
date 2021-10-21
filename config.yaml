@@ -82,19 +82,19 @@ params:
         url: blogs/cv
       - image: climate.jpg
         subtitle: Have weather anomalies increased over time?
-        title: Project 1: Climate change
+        title: Project on Climate change
         url: blogs/climate
       - image: Biden.jpg
         subtitle: How have Biden's approval rates developed?
-        title: Project 2: Joe Biden
+        title: Project on Joe Biden
         url: blogs/biden
       - image: Money.jpg
         subtitle: Can yield curves help predict recessions?
-        title: Project 3: Yield curve
+        title: Project on Yield curve
         url: blogs/yield
       - image: Bike.jpg
         subtitle: Have weekly bike rentals increased over the last few years?
-        title: Project 4: Bike rentals
+        title: Project on Bike rentals
         url: blogs/bike_rental
   two:
     buttonText: Explore website
