@@ -64,7 +64,7 @@ params:
         url: blogs/biography
       - name: CV
         url: blogs/cv
-      - name: Blogs
+      - name: Blog
         url: blogs
     menu: Menu
     subtitle: 
