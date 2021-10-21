@@ -60,20 +60,14 @@ params:
       - name: Home page
         url: '#'
     links:
-      #- name: Home
-      #  url: '#'
+      - name: Home
+        url: '#'
       - name: About me
         url: blogs/biography
       - name: CV
         url: blogs/cv
-      - name: Climate change
-        url: blogs/climate
-      - name: Biden's Approval margin
-        url: blogs/biden
-      - name: Yield curve
-        url: blogs/yield
-      - name: Bike rentals
-        url: blogs/bike_rental
+      - name: Blogs
+        url: blogs
     menu: Menu
     #subtitle: By HTML5 Up
     #title: Forty
