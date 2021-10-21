@@ -6,7 +6,7 @@ googleAnalytics: ''
 disqusShortname: ''
 params:
   banner: 
-    buttonText: View website
+    buttonText: Explore website
     subtitle: |-  
       WELCOME TO MY PERSONALISED WEBSITE WHICH TELLS YOU MORE ABOUT MYSELF AND WHAT I HAVE LEARNED DURING THE DATA ANALYTICS FOR FINANCE COURSE
     title: Hello world, my name is Peter Ambrosiussen
@@ -57,17 +57,23 @@ params:
   name: Your name
   navigation:
     button1:
-      - name: Get Started
-        url: blogs
-    links:
-      - name: Home
+      - name: Home page
         url: '#'
+    links:
+      #- name: Home
+      #  url: '#'
       - name: About me
-        url: blogs/Biography
+        url: blogs/biography
       - name: CV
         url: blogs/cv
-      - name: Projects
-        url: blogs
+      - name: Climate change
+        url: blogs/climate
+      - name: Biden's Approval margin
+        url: blogs/biden
+      - name: Yield curve
+        url: blogs/yield
+      - name: Bike rentals
+        url: blogs/bike_rental
     menu: Menu
     #subtitle: By HTML5 Up
     #title: Forty
@@ -97,15 +103,12 @@ params:
       - image: Bike.jpg
         subtitle: Have weekly bike rentals increased over the last few years?
         title: Bike rentals
-        url: blogs/ipsum
- # two:
-    buttonText: Get Started
+        url: blogs/bike_rental
+  two:
+    buttonText: Explore website
     enable: yes
-    subtitle: "Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero.
-      \r\n    Mauris aliquet magna magna sed nunc rhoncus pharetra. \r\n    Pellentesque
-      condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia
-      pellentesque lorem ipsum dolor. \r\n    Nullam et orci eu lorem consequat tincidunt.
-      Vivamus et sagittis libero.\r\n    Mauris aliquet magna magna sed nunc rhoncus
-      amet pharetra et feugiat tempus."
-    title: Massa libero
-    url: blogs
+    subtitle: "I hope you are enjoying my website. Feel free to discover four different
+    data analytics projects that I have worked on over the past few weeks. \r\n
+    In case you have any questions, please feel free to contact me via email or telephone using the information below."
+  #  title: Massa libero
+   # url: blogs
