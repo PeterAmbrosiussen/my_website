@@ -4,7 +4,7 @@ categories:
 - ""
 title: "Climate change and temperature anomalies"
 date: ""
-description: A visualisation of how weather anomalies have increased over time, including a 95% confidence interval for the delta
+description: A study of how weather anomalies have increased over time, including a 95% confidence interval for the delta
 draft: false
 image: fire.jpg
 keywords: ""
