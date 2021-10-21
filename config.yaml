@@ -70,7 +70,7 @@ params:
         url: blogs
     menu: Menu
     subtitle: 
-    title: Peter world
+    title: Peter's world
   tiles:
     enable: yes
     showcase:

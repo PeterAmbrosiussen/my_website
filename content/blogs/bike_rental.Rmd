@@ -1,14 +1,14 @@
 ---
-title: "Excess rentals in TfL bike sharing"
-#date: '2021-09-30'
-description: bikes_rental
-draft: no
-image: bikes.jpg
-keywords: ''
-slug: bike_rental
 categories:
-- ''
-- ''
+- ""
+- ""
+title: "Excess rentals in TfL bike sharing"
+date: ""
+description: A representation of the monthly and weekly change in TfL rentals
+draft: false
+image: bikes.jpg
+keywords: ""
+slug: bike_rental
 ---
 
 ## Research questions: 

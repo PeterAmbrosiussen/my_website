@@ -3,8 +3,8 @@ categories:
 - ""
 - ""
 title: "Climate change and temperature anomalies"
-date: '2021-10-21'
-description: Climate change
+date: ""
+description: A visualisation of how weather anomalies have increased over time, including a 95% confidence interval for the delta
 draft: false
 image: fire.jpg
 keywords: ""
