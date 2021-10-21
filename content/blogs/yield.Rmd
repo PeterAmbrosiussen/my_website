@@ -1,14 +1,14 @@
 ---
-title: "Yield Curve inversion"
-#date: '2021-09-30'
-description: Yield curves
-draft: no
-image: yield2.jpg
-keywords: ''
-slug: yield
 categories:
-- ''
-- ''
+- ""
+- ""
+title: "Yield Curve inversion"
+date: ""
+description: A description of the development of yields on US rates and how they are related to recessions
+draft: false
+image: yield2.jpg
+keywords: ""
+slug: yield
 ---
 
 ## Research questions: 
